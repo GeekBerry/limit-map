@@ -16,7 +16,7 @@ function sleepMs(ms) {
  * @param deltaMs {Number} 最短发射间隔
  * @return {Promise<[Object|Error, ...]>}
  */
-async function limitedMap(array, func, { limit = Infinity, qps = Infinity, deltaMs = 0 } = {}) {
+async function limitMap(array, func, { limit = Infinity, qps = Infinity, deltaMs = 0 } = {}) {
   let index = 0;
   const emitTimeArray = []; // 发射时间列表
 
@@ -59,5 +59,5 @@ async function limitedMap(array, func, { limit = Infinity, qps = Infinity, delta
   return results;
 }
 
-module.exports = limitedMap;
+module.exports = limitMap;
 module.exports.sleepMs = sleepMs;
